@@ -1,0 +1,55 @@
+/*
+Section our story
+*/
+.story-row{
+    display: table;
+    padding: 50px 0;
+    position: relative;
+    [class*="col-"] {
+        float: none;
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .story-date {
+        height: 85px;
+        width: 85px;
+        background-color:$skin-color;
+        @include border-radius(50%);
+        margin:0 auto;
+        z-index:9;
+        position:relative;
+        .date-only {
+          font-size: 30px;
+    color: #FFF;
+    line-height: 19px;
+    padding-top: 22px;
+    font-weight: 700;
+        }
+        .month-year {
+            font-size: 16px;
+            color: #FFF;
+        }
+    }
+    h3{
+        font-family: $default-font;
+        text-transform: uppercase;
+         font-weight: 900;
+        span{
+            color:$skin-color;
+           
+        }
+    }
+}
+
+.vertical-line {
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index:1;
+    border-left: 1px dashed #eee;
+}

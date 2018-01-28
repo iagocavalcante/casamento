@@ -1,0 +1,152 @@
+/*
+
+Project      : Wedding template 
+Version      : v1.0
+Author       : Design_mylife (Rakesh Sharma)
+Support email: mylifedesign143@gmail.com
+*/
+/**************************************
+
+
+/***** Google fonts import ************/
+@import url(https://fonts.googleapis.com/css?family=Great+Vibes);
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700');
+
+//shortcodes style
+@import "_variables.scss";
+@import "_mixins.scss";
+@import "_base.scss";
+@import "_buttons.scss";
+@import "_navbar.scss";
+@import "_backgrounds.scss";
+@import "_story.scss";
+
+/**image boxes**/
+.image-box{
+    position: relative;
+    overflow: hidden;
+    display:block;
+    img{
+        @include transition(all 2s);
+        width: 100%;
+    }
+    &:after{
+        content: "";
+        position: absolute;
+        left:2%;
+        top: 2%;width: 96%;height: 96%;
+        border: 1px solid rgba(255,255,255,0.7);
+    }
+    &:hover img{
+        @include transform(scale(1.4));
+    }
+}
+.groom-bride{
+    h4{
+        font-family: $default-font;
+        font-size: 24px;
+        font-weight: 400;
+    }
+}
+
+/**countdown***/
+div#getting-married {
+    font-size: 40px;
+    display: inline-block;
+    padding: 15px 20px;
+    background-color: $skin-color;
+    color: #fff;
+    @include box-shadow(4px 4px 0px rgba(0,0,0,0.2));
+}
+
+.wedding-details{
+    h3{
+        font-family: $default-font;
+        font-size: 20px;
+        margin-top: 20px;
+        margin-bottom: 4px;
+        text-transform: uppercase;
+        span{
+            font-family: $title-font;
+        }
+    }
+}
+
+.accomodations-row{
+    h4{
+        margin-top: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        margin-bottom: 0px;
+    }
+    span{
+        display: block;
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+}
+.persons{
+    img{
+        display: block;
+        margin: 0 auto;
+    }
+    h4{
+        font-weight: 400;
+    }
+}
+.gf-row{
+    img{
+        margin: 20px auto;
+        display: block;
+    }
+}
+
+
+/*** Responsive css**/
+@media(max-width:767px){
+    .story-row{
+        display: block;
+        text-align: center;
+        .text-left{
+            text-align: center;
+        }
+    }
+    .story-row [class*="col-"] {
+    float: none;
+    display: block;
+    vertical-align: middle;
+    margin-bottom: 20px;
+}
+
+.vertical-line{
+    display: none;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+.navbar-default .navbar-toggle{
+    border: 0px;
+}
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: transparent;
+}
+.navbar-nav {
+    margin: 0px -15px;
+    background-color: #000;
+}
+.navbar-default.transparent,.navbar-default.transparent.shrink{
+    background-color: #000;
+    padding: 0px;
+}
+.navbar-default.transparent.shrink .logo-rouded {
+    color: #fff;
+}
+.hero-fullscreen.hero_one h1{
+    font-size: 40px;
+    line-height: 40px;
+}
+.empty-image,.get-married,.hero-fullscreen.hero_one,.gift-registry{
+    background-attachment: scroll!important;
+    background-position: center center !important;
+}
+}

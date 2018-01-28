@@ -1,0 +1,64 @@
+/*
+Navigation styles
+*/
+.navbar-default{
+    border: 0px;
+    background-color: #fff;
+    border: 0px;
+    padding:0;
+    margin:0px;
+    .navbar-nav>li{
+        vertical-align: middle;
+    }
+}
+.navbar-default .navbar-nav>li>a {
+    color: #777;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 12px;
+}
+.logo-rouded{
+    color:#fff;
+    strong{
+        font-size: 22px;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: $skin-color;
+    background-color: transparent;
+}
+.navbar-default.transparent{
+    background-color: transparent;
+    padding: 20px 0;
+    @include transition(all 0.3s);
+    .navbar-nav>li>a{
+        color:#fff;
+        &:hover{
+                color:$skin-color;
+            }
+    }
+    &.shrink{
+        background-color: rgba(255,255,255,0.95);
+        padding: 10px 0;
+        @include box-shadow(0 0 2px 1px rgba(0,0,0,0.1));
+        .navbar-nav>li>a{
+            color:#777;
+            &:hover{
+                color:$skin-color;
+            }
+        }
+        .logo-rouded{
+            color:#000;
+        }
+    }
+}
+.navbar-default.transparent .navbar-nav>.active>a, .navbar-default.transparent .navbar-nav>.active>a:focus, .navbar-default.transparent .navbar-nav>.active>a:hover {
+    color: $skin-color;
+    background-color: transparent;
+}
+.navbar-default.transparent.shrink .navbar-nav>.active>a, .navbar-default.transparent.shrink .navbar-nav>.active>a:focus, .navbar-default.transparent.shrink .navbar-nav>.active>a:hover {
+    color: $skin-color;
+    background-color: transparent;
+}
