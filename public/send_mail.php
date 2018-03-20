@@ -1,6 +1,6 @@
 <?php
 
-if(empty($_POST['nome']) || empty($_POST['email']) || empty($_POST['mensagem']) || empty($_POST['evento'])) {
+if(!empty($_POST['nome']) || !empty($_POST['email']) || !empty($_POST['mensagem']) || !empty($_POST['evento'])) {
     ini_set('display_errors', 1);
 
     $from = $_POST['email'];
