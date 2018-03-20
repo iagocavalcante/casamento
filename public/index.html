@@ -22,6 +22,10 @@
     <![endif]-->
 </head>
 <style>
+    html {
+        overflow-x: hidden;
+    }
+
     #igrejaMap {
         height: 400px;
         width: 100%;
@@ -376,7 +380,7 @@
                 <p class="margin-b-20">
                     Confirme sua presença e deixe seu recado para os noivos.
                 </p>
-                <a href="#rsvp" class="btn btn-dark-border btn-lg">Rspv</a>
+                <a href="#confirme_sua_presenca" class="btn btn-dark-border btn-lg">Rspv</a>
             </div>
         </div>
     </div>
@@ -613,7 +617,8 @@
                 <div class="center-title">
                     <h2 class="lista-presente">Lista de Presentes</h2>
                     <p class="lista-presente">
-                        Seleção de presentes criada como recordação de cada pessoa importante em nossas vidas.
+                        Seleção de presentes criada como recordação de cada pessoa importante em nossas vidas. Clique
+                        <a href="lista%20atualizada.pdf" target="_blank">aqui</a> para baixar.
                     </p>
                     <hr>
                 </div>
@@ -661,23 +666,23 @@
         </div>
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2">
-                <form role="form">
+                <form role="form" method="post" action="send_mail.php">
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Nome</label>
-                                <input type="text" class="form-control">
+                                <input type="text" name="nome" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="text" class="form-control">
+                                <input type="text" name="email" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Você irá participar </label>
-                                <select class="form-control">
-                                    <option>Os dois eventos</option>
-                                    <option>Cerimônia Religiosa</option>
-                                    <option>Recepção</option>
+                                <select name="evento" class="form-control">
+                                    <option value="os dois">Os dois eventos</option>
+                                    <option value="religioso">Cerimônia Religiosa</option>
+                                    <option value="recepção">Recepção</option>
                                 </select>
                             </div>
 
@@ -685,7 +690,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Deixe sua mensagem</label>
-                                <textarea class="form-control" rows="12"></textarea>
+                                <textarea name="mensagem" class="form-control" rows="12"></textarea>
                             </div>
                             <button type="button" class="btn btn-skin btn-lg btn-block">Enviar</button>
                         </div>
