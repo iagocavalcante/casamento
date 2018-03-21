@@ -24,8 +24,11 @@ require 'vendor/autoload.php';
         $mail->Subject = 'Confirmação de Presença';
         $mail->Body    = $_POST['mensagem'] . "\n Qual evento ? \n" . $_POST['evento'];
 
-        $mail->send();
-        echo 'Email enviado <a href="http://casamentokarla.iagocavalcante.com.br">voltar</a>';
+        if(!$mail->send()) {
+            echo "Não foi possível enviar email, <a href='http://casamentokarla.iagocavalcante.com.br'>voltar</a> \n Error: ", $mail->ErrorInfo;
+        } else {
+            echo 'Email enviado <a href="http://casamentokarla.iagocavalcante.com.br">voltar</a>';
+        }
     } catch (Exception $e) {
         echo "Não foi possível enviar email, <a href='http://casamentokarla.iagocavalcante.com.br'>voltar</a> \n Error: ", $mail->ErrorInfo;
     }
