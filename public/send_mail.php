@@ -1,19 +1,34 @@
 <?php
+require 'mailer/PHPMailer.php';
+require 'mailer/Exception.php';
 
 if(!empty($_POST['nome']) || !empty($_POST['email']) || !empty($_POST['mensagem']) || !empty($_POST['evento'])) {
-    ini_set('display_errors', 1);
+    $mail = new \PHPMailer\PHPMailer\PHPMailer(true);                              // Passing `true` enables exceptions
+    try {
+        //Server settings
+        $mail->SMTPDebug = 2;                                 // Enable verbose debug output
+        $mail->isSMTP();                                      // Set mailer to use SMTP
+        $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;                               // Enable SMTP authentication
+        $mail->Username = 'iagoangelimc@gmail.com';                 // SMTP username
+        $mail->Password = 'cavalcante260412';                           // SMTP password
+        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 587;                                    // TCP port to connect to
 
-    $from = $_POST['email'];
+        //Recipients
+        $mail->setFrom($_POST['email'], $_POST['nome']);
+        $mail->addAddress('karla.2.costa@gmail.com', 'Karla');
 
-    $to = "karla.2.costa@gmail.com";
+        //Content
+        $mail->isHTML(true);                                  // Set email format to HTML
+        $mail->Subject = 'Confirmação de Presença';
+        $mail->Body    = $_POST['mensagem'] . "\n Qual evento ? \n" . $_POST['evento'];
 
-    $subject = "Confirmação de Presença";
-
-    $message = $_POST['mensagem'];
-
-    $headers = "De:". $from;
-
-    mail($to, $subject, $message, $headers);
+        $mail->send();
+        echo "Email enviado <a href='http://casamentokarla.iagocavalcante.com.br'>voltar</a>";
+    } catch (Exception $e) {
+        echo "Não foi possível enviar email, <a href='http://casamentokarla.iagocavalcante.com.br'>voltar</a> \n Error:", $mail->ErrorInfo;
+    }
 }
 
 ?>
