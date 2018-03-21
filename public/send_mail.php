@@ -1,9 +1,8 @@
 <?php
-require 'mailer/PHPMailer.php';
-require 'mailer/Exception.php';
+use PHPMailer\PHPMailer\PHPMailer;
 
-if(!empty($_POST['nome']) || !empty($_POST['email']) || !empty($_POST['mensagem']) || !empty($_POST['evento'])) {
-    $mail = new \PHPMailer\PHPMailer\PHPMailer(true);                              // Passing `true` enables exceptions
+require 'vendor/autoload.php';
+    $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
     try {
         //Server settings
         $mail->SMTPDebug = 2;                                 // Enable verbose debug output
@@ -25,10 +24,10 @@ if(!empty($_POST['nome']) || !empty($_POST['email']) || !empty($_POST['mensagem'
         $mail->Body    = $_POST['mensagem'] . "\n Qual evento ? \n" . $_POST['evento'];
 
         $mail->send();
-        echo "Email enviado <a href='http://casamentokarla.iagocavalcante.com.br'>voltar</a>";
+        echo 'Email enviado <a href="http://casamentokarla.iagocavalcante.com.br">voltar</a>';
     } catch (Exception $e) {
         echo "Não foi possível enviar email, <a href='http://casamentokarla.iagocavalcante.com.br'>voltar</a> \n Error:", $mail->ErrorInfo;
     }
-}
+
 
 ?>
