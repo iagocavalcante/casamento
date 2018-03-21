@@ -2,10 +2,10 @@
 use PHPMailer\PHPMailer\PHPMailer;
 
 require 'vendor/autoload.php';
-    $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+    $mail = new PHPMailer;                              // Passing `true` enables exceptions
     try {
         //Server settings
-        $mail->SMTPDebug = 2;                                 // Enable verbose debug output
+        $mail->SMTPDebug = 0;                                 // Enable verbose debug output
         $mail->isSMTP();                                      // Set mailer to use SMTP
         $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;                               // Enable SMTP authentication
@@ -26,7 +26,7 @@ require 'vendor/autoload.php';
         $mail->send();
         echo 'Email enviado <a href="http://casamentokarla.iagocavalcante.com.br">voltar</a>';
     } catch (Exception $e) {
-        echo "Não foi possível enviar email, <a href='http://casamentokarla.iagocavalcante.com.br'>voltar</a> \n Error:", $mail->ErrorInfo;
+        echo "Não foi possível enviar email, <a href='http://casamentokarla.iagocavalcante.com.br'>voltar</a> \n Error: ", $mail->ErrorInfo;
     }
 
 
