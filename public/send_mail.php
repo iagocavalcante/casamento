@@ -25,7 +25,7 @@ require 'vendor/autoload.php';
         //Content
         $mail->isHTML(true);                                  // Set email format to HTML
         $mail->Subject = 'Confirmação de Presença';
-        $mail->Body    = $_POST['mensagem'] . "\n Qual evento ? \n" . $_POST['evento'];
+        $mail->Body    = "Mensagem: <br>" . $_POST['mensagem'] . "<br> Qual evento ? <br>" . $_POST['evento'];
 
         if(!$mail->send()) {
             echo "Não foi possível enviar email, <a href='http://casamentokarla.iagocavalcante.com.br'>voltar</a> \n Error: ", $mail->ErrorInfo;
