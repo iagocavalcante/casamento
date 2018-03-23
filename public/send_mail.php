@@ -10,7 +10,7 @@ require 'vendor/autoload.php';
         $mail->Host = 'br676.hostgator.com.br';
 //        $mail->Host = 'ssl://smtp.gmail.com';  // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail->Username = 'contato@iagocavalcante.com.b';                 // SMTP username
+        $mail->Username = 'contato@iagocavalcante.com.br';                 // SMTP username
         $mail->Password = 'a1s2d3f4A!';                           // SMTP password
 //        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
         $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
